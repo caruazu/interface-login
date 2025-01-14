@@ -28,18 +28,17 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets/",
-                "output": "/assets/"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "src/",
-                "output": "/"
+                "input": "public"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+                "includePaths": [
+                    "src/styles"
+                ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -93,18 +92,17 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets/",
-                "output": "/assets/"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "src/",
-                "output": "/"
+                "input": "public"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+                "includePaths": [
+                    "src/styles"
+                ]
+            },
             "scripts": []
           }
         }
