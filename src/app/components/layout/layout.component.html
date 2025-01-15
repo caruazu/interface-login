@@ -2,9 +2,15 @@
     <section class="section-form">
         <img src="/svg/logo.svg"/>
         <h2>{{ title }}</h2>
-        <button class="btn-primary">{{ btnTextPrimary }}</button>
-        <span>or</span>
-        <button class="btn-secondary">{{ btnTextSecondary }}</button>
+        <div class="btn-wrapper">
+            <button class="btn-primary">{{ btnTextPrimary }}</button>
+            <div class="divider">
+                <div></div>
+                <span>or</span>
+                <div></div>
+            </div>
+            <button class="btn-secondary">{{ btnTextSecondary }}</button>
+        </div>
     </section>
     <section class="section-ilustracao">
         <h1>You Should, MoveIt!</h1>
