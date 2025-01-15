@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables.scss" as v;
 
 main{
     display: flex;
@@ -19,7 +19,7 @@ main{
         gap: 8px;
         flex-grow: 1;
 
-        background-color: $color-backgroud;
+        background-color: v.$color-backgroud;
 
     }
 
@@ -59,14 +59,14 @@ main{
                 cursor: pointer;
         
                 &.btn-primary{
-                    background-color: $color-primary;
+                    background-color: v.$color-primary;
                     color: white;
                     box-shadow: 0px 8px 12px 0px #9440FF33;
                 }
         
                 &.btn-secondary{
-                    border: 1px solid $color-primary;
-                    color: $color-primary;
+                    border: 1px solid v.$color-primary;
+                    color: v.$color-primary;
                 }
             }
 
@@ -79,13 +79,13 @@ main{
     
                 font-size: 14px;
                 text-transform: uppercase;
-                color: $color-backgroud;
+                color: v.$color-backgroud;
                 font-weight: 400;
     
                 div{
                     flex-grow: 1;
                     height: 2px;
-                    background-color: $color-backgroud;
+                    background-color: v.$color-backgroud;
                 }
             }
         }        

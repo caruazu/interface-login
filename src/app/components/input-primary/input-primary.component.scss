@@ -1,0 +1,13 @@
+@use "variables.scss" as v;
+
+input{
+    border: none;
+    border-radius: 8px;
+    background-color: v.$color-backgroud-secondary;
+
+    color: v.$color-text-primary;
+    font-size: 16px;
+    padding: 12px 0px 12px 20px;
+    width: 100%;
+
+}
