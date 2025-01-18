@@ -1,13 +1,41 @@
 @use "variables.scss" as v;
 
-input{
-    border: none;
-    border-radius: 8px;
-    background-color: v.$color-backgroud-secondary;
+.input-wrapper{
+  color: v.$color-text-primary;
+  font-size: 16px;
+  text-align: start;
 
-    color: v.$color-text-primary;
-    font-size: 16px;
-    padding: 12px 0px 12px 20px;
+  label {
+    margin-bottom: 10px;
+  }
+
+  .input-content{
+    display: flex;
     width: 100%;
+    border-radius: 8px;
+
+    input {
+      border: none;
+      border-radius: 8px 0px 0px 8px;
+      background-color: v.$color-backgroud-secondary;
+
+      padding: 12px 0px 12px 20px;
+      width: 100%;
+
+    }
+
+    .input-icon {
+      padding: 12px;
+      border-radius: 0px 8px 8px 0px;
+      background-color: v.$color-primary;
+
+      img {
+        height: 20px;
+      }
+    }
+  }
+
+
 
 }
+

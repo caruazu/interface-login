@@ -1,9 +1,26 @@
-<app-layout 
+<app-layout
     title="Acesse sua conta"
     btnTextPrimary="Acessar"
     btnTextSecondary="Registar"
 >
     <form [formGroup]="loginForm">
-        <app-input-primary></app-input-primary>
+        <app-input-primary
+          InputName="email"
+          formControlName="email"
+          type="email"
+          label="Email"
+          placeHolder="nome@email.com"
+        >
+          <img src="/svg/mail.svg"/>
+        </app-input-primary>
+
+        <app-input-primary
+          InputName="password"
+          formControlName="password"
+          type="password"
+          label="Senha"
+        >
+          <img src="/svg/lock.svg"/>
+        </app-input-primary>
     </form>
 </app-layout>
