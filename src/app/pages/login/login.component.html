@@ -2,6 +2,9 @@
     title="Acesse sua conta"
     btnTextPrimary="Acessar"
     btnTextSecondary="Registar"
+    [btnPrimaryDisable]="!loginForm.valid"
+    (submit)="submit()"
+    (navigate)="navigate()"
 >
     <form [formGroup]="loginForm">
         <app-input-primary
