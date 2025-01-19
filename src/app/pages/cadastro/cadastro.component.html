@@ -1,0 +1,26 @@
+<app-layout
+  title="Cadastre-se"
+  btnTextPrimary="Cadastrar"
+  btnTextSecondary="Acessar"
+  [btnPrimaryDisable]="!cadastroForm.valid"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="cadastroForm">
+    <app-input-primary InputName="username" formControlName="username" type="text" label="Usuário" placeHolder="seu_usuario">
+      <img src="/svg/mail.svg" />
+    </app-input-primary>
+
+    <app-input-primary InputName="email" formControlName="email" type="email" label="Email" placeHolder="nome@email.com">
+      <img src="/svg/mail.svg" />
+    </app-input-primary>
+
+    <app-input-primary InputName="password" formControlName="password" type="password" label="Senha">
+      <img src="/svg/lock.svg" />
+    </app-input-primary>
+
+    <app-input-primary InputName="passwordConfirm" formControlName="passwordConfirm" type="password" label="Confirme a senha">
+      <img src="/svg/lock.svg" />
+    </app-input-primary>
+  </form>
+</app-layout>

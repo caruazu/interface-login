@@ -5,6 +5,11 @@ import { InputPrimaryComponent } from '../../components/input-primary/input-prim
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 
+interface LoginForm {
+  email: FormControl,
+  password: FormControl,
+}
+
 @Component({
   selector: 'app-login',
   imports: [LayoutComponent, ReactiveFormsModule, InputPrimaryComponent],
@@ -12,8 +17,9 @@ import { LoginService } from '../../services/login.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
+
 export class LoginComponent {
-  loginForm!: FormGroup;
+  loginForm!: FormGroup<LoginForm>;
 
   constructor(private router: Router, private loginService: LoginService) {
     this.loginForm = new FormGroup({
@@ -26,16 +32,15 @@ export class LoginComponent {
   }
 
   submit() {
-    this.loginService.login(
-      this.loginForm.value.email,
-      this.loginForm.value.password
-    ).subscribe({
-      next: () => console.log("sucesso"),
-      error: () => console.log("error")
-    })
+    this.loginService
+      .login(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe({
+        next: () => console.log('sucesso'),
+        error: () => console.log('error'),
+      });
   }
 
   navigate() {
-    this.router.navigate(["registrar"])
+    this.router.navigate(['cadastro']);
   }
 }

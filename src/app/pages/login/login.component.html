@@ -1,30 +1,30 @@
 <app-layout
-    title="Acesse sua conta"
-    btnTextPrimary="Acessar"
-    btnTextSecondary="Registar"
-    [btnPrimaryDisable]="!loginForm.valid"
-    (submit)="submit()"
-    (navigate)="navigate()"
+  title="Acesse sua conta"
+  btnTextPrimary="Acessar"
+  btnTextSecondary="Cadastrar"
+  [btnPrimaryDisable]="!loginForm.valid"
+  (submit)="submit()"
+  (navigate)="navigate()"
 >
-    <form [formGroup]="loginForm">
-        <app-input-primary
-          InputName="email"
-          formControlName="email"
-          type="email"
-          label="Email"
-          placeHolder="nome@email.com"
-        >
-          <img src="/svg/mail.svg"/>
-        </app-input-primary>
+  <form [formGroup]="loginForm">
+    <app-input-primary
+      InputName="email"
+      formControlName="email"
+      type="email"
+      label="Email"
+      placeHolder="nome@email.com"
+    >
+      <img src="/svg/mail.svg"/>
+    </app-input-primary>
 
-        <app-input-primary
-          InputName="password"
-          formControlName="password"
-          type="password"
-          label="Senha"
-        >
-          <img src="/svg/lock.svg"/>
-        </app-input-primary>
-        <span>Esqueceu a senha?</span>
-    </form>
+    <app-input-primary
+      InputName="password"
+      formControlName="password"
+      type="password"
+      label="Senha"
+    >
+      <img src="/svg/lock.svg"/>
+    </app-input-primary>
+    <span>Esqueceu a senha?</span>
+  </form>
 </app-layout>
