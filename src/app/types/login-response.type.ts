@@ -1,3 +1,5 @@
 export type LoginResponse = {
-  token: string
+  message: string;
+  data: string;
+  timestamp: Date;
 }

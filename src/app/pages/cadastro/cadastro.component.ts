@@ -31,10 +31,10 @@ export class CadastroComponent {
 
   constructor(private router: Router, private loginService: LoginService) {
     this.cadastroForm = new FormGroup({
-      username: new FormControl('',[Validators.required, Validators.minLength(3)]),
+      username: new FormControl('', [Validators.required,Validators.minLength(3),]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(12)]),
-      passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(12)]),
+      password: new FormControl('', [Validators.required,Validators.minLength(12),]),
+      passwordConfirm: new FormControl('', [Validators.required,Validators.minLength(12),]),
     });
   }
 
@@ -43,6 +43,10 @@ export class CadastroComponent {
   }
 
   submit() {
-    throw new Error('Method not implemented.');
+    const values = this.cadastroForm.value
+    this.loginService.signup(values.username,values.email,values.password).subscribe({
+      next: () => console.log('sucesso'),
+      error: () => console.log('error'),
+    })
   }
 }

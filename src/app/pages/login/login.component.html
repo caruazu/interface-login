@@ -8,13 +8,13 @@
 >
   <form [formGroup]="loginForm">
     <app-input-primary
-      InputName="email"
-      formControlName="email"
-      type="email"
-      label="Email"
-      placeHolder="nome@email.com"
+      InputName="username"
+      formControlName="username"
+      type="text"
+      label="Usuário"
+      placeHolder="seu_usuario"
     >
-      <img src="/svg/mail.svg"/>
+      <img src="/svg/mail.svg" />
     </app-input-primary>
 
     <app-input-primary
@@ -22,6 +22,7 @@
       formControlName="password"
       type="password"
       label="Senha"
+      placeHolder="************"
     >
       <img src="/svg/lock.svg"/>
     </app-input-primary>
