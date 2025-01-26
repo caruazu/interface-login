@@ -11,9 +11,9 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) {}
 
-  login(username: string, password: string) {
+  login(username: string, password: string, captcha: string) {
     return this.httpClient
-      .post<LoginResponse>(this.apiUrl + '/login', { username, password })
+      .post<LoginResponse>(this.apiUrl + '/login', { username, password, captcha })
       .pipe(
         tap((value) => {
           // Convertendo timestamp para objeto Date

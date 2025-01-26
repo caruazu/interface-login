@@ -15,9 +15,11 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 - Tela de login
 - Tela de cadastro de usuários comuns
 - CORS
+- CAPCHA
 
 ### Para implementar
 
+- redirecionar o usuário depois do login/cadastro
 - Tela de confirmação de email
 - Organização das mensagens de erro
 - Tempo de sessão e re-login automático
@@ -25,4 +27,4 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 - Telas restritas de acordo com o nível de usuário
 - Tela de mudança de senha
 - Login com o google
-- Validação de capcha
+

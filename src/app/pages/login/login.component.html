@@ -26,6 +26,13 @@
     >
       <img src="/svg/lock.svg"/>
     </app-input-primary>
+    <!-- reCAPTCHA -->
+    <ngx-recaptcha2
+      #captchaElem
+      [siteKey]="siteKey"
+      (success)="handleSuccess($event)"
+      formControlName="captcha">
+    </ngx-recaptcha2>
     <span>Esqueceu a senha?</span>
   </form>
 </app-layout>
