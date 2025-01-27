@@ -28,3 +28,9 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 - Tela de mudança de senha
 - Login com o google
 
+## Instalação
+
+### Configurações
+
+Use o arquivo [environment.template.ts](src/environments/environment.template.ts) como exemplo para suas variáveis locais. Faça sua cópia do arquivo e altere o nome deste para `environment.development.ts` ou `environment.ts`, ponha os dados de sua implementação.
+

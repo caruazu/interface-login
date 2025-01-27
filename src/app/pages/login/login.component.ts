@@ -5,6 +5,7 @@ import { InputPrimaryComponent } from '../../components/input-primary/input-prim
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { environment } from '../../../environments/environment';
 
 interface LoginForm {
   username: FormControl;
@@ -25,7 +26,7 @@ interface LoginForm {
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  public readonly siteKey = '123';
+  public readonly siteKey = environment.siteKey;
 
   loginForm!: FormGroup<LoginForm>;
 
@@ -45,10 +46,12 @@ export class LoginComponent {
 
   submit() {
     const values = this.loginForm.value;
-    this.loginService.login(values.username, values.password, values.captcha).subscribe({
-      next: () => console.log('sucesso'),
-      error: () => console.log('error'),
-    });
+    this.loginService
+      .login(values.username, values.password, values.captcha)
+      .subscribe({
+        next: () => console.log('sucesso'),
+        error: () => console.log('error'),
+      });
   }
 
   navigate() {

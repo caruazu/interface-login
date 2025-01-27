@@ -2,18 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap, timestamp } from 'rxjs';
 import { LoginResponse } from '../types/login-response.type';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  apiUrl: string = 'http://localhost:8080/auth';
+  apiUrl: string = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
   login(username: string, password: string, captcha: string) {
     return this.httpClient
-      .post<LoginResponse>(this.apiUrl + '/login', { username, password, captcha })
+      .post<LoginResponse>(this.apiUrl + '/auth/login', {
+        username,
+        password,
+        captcha,
+      })
       .pipe(
         tap((value) => {
           // Convertendo timestamp para objeto Date
@@ -22,11 +27,6 @@ export class LoginService {
           // Desestruturando os valores da resposta
           const { message, data, timestamp } = value;
 
-          // Exibindo os valores no console separadamente
-          console.log('Message:', message);
-          console.log('Data:', data);
-          console.log('Timestamp:', timestamp);
-
           sessionStorage.setItem('auth-token', value.data);
         })
       );
@@ -34,8 +34,12 @@ export class LoginService {
 
   signup(username: string, email: string, password: string) {
     const role = 'USER'
-    return this.httpClient
-      .post<LoginResponse>(this.apiUrl + '/register', { username, email, password, role });
+    return this.httpClient.post<LoginResponse>(this.apiUrl + '/auth/register', {
+      username,
+      email,
+      password,
+      role,
+    });
   }
 
   logout(): void {
