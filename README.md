@@ -16,12 +16,14 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 - Tela de cadastro de usuários comuns
 - CORS
 - CAPCHA
+- Animação da resposta do formulario
 
 ### Para implementar
 
-- redirecionar o usuário depois do login/cadastro
+- Redirecionar o usuário depois do login/cadastro
 - Tela de confirmação de email
 - Organização das mensagens de erro
+- botão prava visualizar a senha
 - Tempo de sessão e re-login automático
 - Tela de cadastro de usuários administradores
 - Telas restritas de acordo com o nível de usuário

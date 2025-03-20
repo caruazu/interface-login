@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { environment } from '../../../environments/environment';
+import { CommonModule } from '@angular/common';
+import { RespostaComponent } from "../../components/resposta/resposta.component";
 
 interface LoginForm {
   username: FormControl;
@@ -16,10 +18,12 @@ interface LoginForm {
 @Component({
   selector: 'app-login',
   imports: [
+    CommonModule,
     LayoutComponent,
     ReactiveFormsModule,
     InputPrimaryComponent,
     NgxCaptchaModule,
+    RespostaComponent,
   ],
   providers: [LoginService],
   templateUrl: './login.component.html',
@@ -29,6 +33,10 @@ export class LoginComponent {
   public readonly siteKey = environment.siteKey;
 
   loginForm!: FormGroup<LoginForm>;
+
+  loginStatusMessage: string = '';
+  loginSuccess: boolean = false;
+  isLoading: boolean = false;
 
   constructor(private router: Router, private loginService: LoginService) {
     this.loginForm = new FormGroup({
@@ -46,11 +54,21 @@ export class LoginComponent {
 
   submit() {
     const values = this.loginForm.value;
+    this.isLoading = true;
     this.loginService
       .login(values.username, values.password, values.captcha)
       .subscribe({
-        next: () => console.log('sucesso'),
-        error: () => console.log('error'),
+        next: () => {
+          this.loginStatusMessage = 'Login efetuado com sucesso!';
+          this.isLoading = false;
+          this.loginSuccess = true;
+        },
+        error: () => {
+          this.loginStatusMessage =
+            'Falha ao efetuar o login. Por favor, tente novamente.';
+          this.isLoading = false;
+          this.loginSuccess = false;
+        },
       });
   }
 

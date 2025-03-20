@@ -6,7 +6,14 @@
   (submit)="submit()"
   (navigate)="navigate()"
 >
+
+  <app-resposta *ngIf="loginStatusMessage || isLoading" [message]="loginStatusMessage" [success]="loginSuccess"
+    [loading]="isLoading">
+    >
+  </app-resposta>
+
   <form [formGroup]="loginForm">
+
     <app-input-primary
       InputName="username"
       formControlName="username"
@@ -35,4 +42,7 @@
     </ngx-recaptcha2>
     <span>Esqueceu a senha?</span>
   </form>
+
+
+
 </app-layout>

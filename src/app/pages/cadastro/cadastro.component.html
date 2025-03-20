@@ -6,6 +6,12 @@
   (submit)="submit()"
   (navigate)="navigate()"
 >
+
+  <app-resposta *ngIf="loginStatusMessage || isLoading" [message]="loginStatusMessage" [success]="loginSuccess"
+    [loading]="isLoading">
+    >
+  </app-resposta>
+
   <form [formGroup]="cadastroForm">
     <app-input-primary InputName="username" formControlName="username" type="text" label="Usuário" placeHolder="seu_usuario">
       <img src="/svg/mail.svg" />

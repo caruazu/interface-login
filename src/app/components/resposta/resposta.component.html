@@ -1,0 +1,11 @@
+<div class="alert-container">
+  <ng-container *ngIf="loading; else showAlert">
+    <div class="spinner"></div>
+    <p>Carregando...</p>
+  </ng-container>
+  <ng-template #showAlert>
+    <div class="alert" [ngClass]="{'alert-success': success, 'alert-error': !success}">
+      {{ message }}
+    </div>
+  </ng-template>
+</div>
